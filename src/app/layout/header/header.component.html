@@ -1,0 +1,38 @@
+<div class="banner fixed-top"></div>
+<div class="bg-dark">
+    <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark mt-4">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="#">
+                <img [src]="logo" alt="Diplomado" height="30%"> Navbar</a>
+              <button class="navbar-toggler" type="button" 
+              data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                          Directivas
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li routerLinkActive="active"><a class="dropdown-item" [routerLink]="['directivas/ngIf']">NgIf</a></li>
+                            <li routerLinkActive="active"><a class="dropdown-item" [routerLink]="['directivas/ngFor']">NgFor</a></li>
+                            <li routerLinkActive="active"><a class="dropdown-item" [routerLink]="['directivas/ngSwitch']">NgSwitch</a></li>
+                            <li routerLinkActive="active"><a class="dropdown-item" [routerLink]="['directivas/binding']">BinDing</a></li>
+                            <li routerLinkActive="active"><a class="dropdown-item" [routerLink]="['directivas/ngStyle']">NgStyle</a></li>
+                            <li routerLinkActive="active"><a class="dropdown-item" [routerLink]="['directivas/ngClass']">NgClass</a></li>
+                            <li routerLinkActive="active"><a class="dropdown-item" [routerLink]="['directivas/ngModel']">NgModel</a></li>
+                        </ul>
+                    </li>
+                </ul>
+              </div>
+              <ul class="navbar-nav">
+                <li routerLinkActive="active" class="nav-item">
+                  <a class="nav-link" [routerLink]="['mascotas/listar']">Mascotas</a>
+                </li>
+              </ul>
+            </div>
+          </nav>
+    </div>
+</div>

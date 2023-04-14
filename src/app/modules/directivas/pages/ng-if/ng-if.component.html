@@ -1,0 +1,28 @@
+<div class="container mt-5">
+  <div class="msg" *ngIf="isError">
+    <p>
+      <Strong> {{msg}}</Strong>
+    </p>
+  </div>
+  <hr />
+  <div class="contenido">
+    <ng-container *ngIf="dato === 'image'; then  Imagen; else Video">
+    </ng-container>
+    <ng-template #Imagen>
+      <img [src]="image" width="50%" alt="..." />
+    </ng-template>
+    <ng-template #Video>
+      <div class="ratio ratio-16x9 contenido">
+        <iframe
+          width="800"
+          height="500"
+          [src]="video"
+          title="video"
+          frameborder="0"
+          allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+        ></iframe>
+      </div>
+    </ng-template>
+  </div>
+</div>

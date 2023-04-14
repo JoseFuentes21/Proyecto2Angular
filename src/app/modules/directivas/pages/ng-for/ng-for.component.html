@@ -1,0 +1,15 @@
+<div class="container mt-5">
+    <div class="msg" >
+      <p>
+        <Strong> {{msg}}</Strong>
+      </p>
+    </div>
+    <hr />
+    <div class="contenido">
+      <ul>
+        <li *ngFor="let cliente of listaEmpleado; let i=index">
+            {{i+1}} - {{cliente.nombre}} -- {{cliente.puesto}} -- {{cliente.telefono}} --{{cliente.genero}}
+        </li>
+      </ul>
+    </div>
+  </div>

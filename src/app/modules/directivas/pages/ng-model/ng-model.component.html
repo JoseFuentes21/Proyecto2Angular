@@ -1,0 +1,11 @@
+<div class="container mt-5">
+    <h1>{{titulo}}</h1>
+    <hr/>
+    <label for="exampleFormControlput" class="form-label">Nombre</label>
+    <input type="text" class="form-control" placeholder="name"
+    [(ngModel)]="nombre" (keyup)="formatNombre()">
+    <hr/>
+    <div *ngIf="nombre" class="p-5 mb-4 bg-light">
+        <h3>Hola {{nombre}} | {{nombre2}}</h3>
+    </div>
+</div>

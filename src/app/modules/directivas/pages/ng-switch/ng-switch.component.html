@@ -1,0 +1,46 @@
+<div class="container mt-5">
+    <h1>Trabajando con *ngSwitch</h1>
+    <hr/>
+    <div class="p-5 bg-light">
+        <h1 class="display-4"></h1>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div [ngSwitch]="opcion">
+                        <div class="container text-success" *ngSwitchCase="opcion">
+                            Ha seleccionado la alerta <b>{{opcion}}</b>
+                        </div>
+                        <div class="container text-success" *ngSwitchDefault>
+                            <b>Sin seleccion</b>
+                        </div>
+                    </div>
+                    <div class="card-columns">
+                        <!--Uso de evento binding(click)="metodo()"-->
+                        <button
+                            class="btn btn-outline-primary btn-block btn-lg m-3"
+                            (click)="mostrarAlerta(ramdom)"> Opcion{{opcion}}
+                        </button>
+                    </div>
+                    <hr class="mt-5">
+                </div>
+            </div>
+        </div>
+        <!--aqui el ejemplo2-->
+        <!--Ejemplo 2-->
+        <h3>Ejemplo 2 de ngSwitch</h3>
+        <div [ngSwitch]="tipoAlerta">
+            <div *ngSwitchCase="tipoAlerta">{{tipoAlerta}}</div>
+            <div *ngSwitchDefault>danger</div>
+        </div>
+        <button type="button" class="btn btn-primary" (click)="alerta">Cambiar</button>
+        <hr/>
+        <div [ngSwitch]="tipoAlerta">
+            <div *ngSwitchCase="tipoAlerta" class="alert alert-{{tipoAlerta}}" role="alert">
+                A simple primary alert-check it out!
+            </div>
+            <div *ngSwitchDefault class="alert alert-{{tipoAlerta}}" role="alert">
+                A simple danger alert-check it our!
+            </div>
+        </div>
+    </div>
+</div>

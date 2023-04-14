@@ -1,0 +1,28 @@
+<div class="container mt-5">
+    <h1 [ngClass]="'tema-uno'">{{tema}}</h1>
+    <p [ngClass]="'tema-dos tema-tres'">NgClass como cadena</p>
+    <div [ngClass]="alerta" class="alert" role="alert">
+        Con ngclass estamos cambiando la clase de estilo usando un string y usando variable.
+    </div>
+    <button class="btn btn-info m-1" (click)="alerta='alert-info'">Info</button>
+    <button class="btn btn-success m-1" (click)="alerta='alert-success'">Success</button>
+    <button class="btn btn-danger m-1" (click)="alerta='alert-danger'">Danger</button>
+    <button class="btn btn-warning m-1" (click)="alerta='alert-warning'">Warning</button>
+    <button class="btn btn-primary m-1" (click)="alerta='alert-primary'">Primary</button>
+    <button class="btn btn-light m-1" (click)="alerta='alert-light'">Light</button>
+    <button class="btn btn-dark m-1" (click)="alerta='alert-dark'">Dark</button>
+
+    <hr/>
+    <h3 [ngClass]="{'text-danger': propiedad.danger, 'text-info': !propiedad.danger}">
+        Con ngClass estamos cambiando la clase del estilo usando objetos
+    </h3>
+    <button type="button" class="btn" (click)="propiedad.danger = !propiedad.danger"
+    [ngClass]="{'text-danger': propiedad.danger, 'text-info': !propiedad.danger}">Cambiar</button>
+    <hr/>
+    <p [ngClass]="['tema-uno','tema-dos','tema-tres']">NgClass com una Matriz</p>
+    <hr/>
+    <h1 [ngClass]="{'text-info':message === 1, 'text-danger':message !== 1}">
+        Mensaje importante, usando condiciones
+    </h1>
+
+</div>

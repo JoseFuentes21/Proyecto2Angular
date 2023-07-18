@@ -11,10 +11,10 @@ import { IComida } from '../interface/comida.interface';
 export class MascotasService {
   private bae_url: string = environment.baseURl;
   private base_url: string = environment.baseURLComi;
-  constructor(private http: HttpClient,private http2: HttpClient) { }
+  constructor(private http: HttpClient) { }
 
   get comidas(): Observable<IComida>{
-    return this.http2.get<IComida>(`${this.base_url}`);
+    return this.http.get<IComida>(`${this.base_url}`);
   }
 
   get mascotas(): Observable<IMascota[]>{
@@ -37,4 +37,17 @@ export class MascotasService {
   eliminarMascota(id:string):Observable<IMascota>{
     return this.http.delete<IMascota>(`${this.bae_url}/mascotas/${id}`);
   }
+
+  eliminarMascota2(pet:IMascota){
+    return this.http.delete<IMascota>(`${this.bae_url}/mascotas/${pet.id}`);
+  }
+
+  nuevaMascota(pet:IMascota){
+    return this.http.post(`${this.bae_url}/mascotas/`,pet);
+  }
+
+  editarMascota(pet:IMascota):any{
+    return this.http.put(`${this.bae_url}/mascotas/${pet.id}`,pet);
+  }
+
 }

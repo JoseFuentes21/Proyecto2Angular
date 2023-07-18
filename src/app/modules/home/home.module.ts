@@ -19,9 +19,8 @@ import { HttpClientModule } from '@angular/common/http';
   imports: [
     CommonModule,
     HomeRoutingModule,
-    SharedModule,
-    HttpClientModule
+    SharedModule
   ],
-  providers: [MascotasService]
+  providers: []
 })
 export class HomeModule { }

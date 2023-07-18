@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { IMascota } from '@modules/mascotas/interface/mascotas.interface';
 import { MascotasService } from '@modules/mascotas/services/mascotas.service';
 import Swal from 'sweetalert2';
@@ -9,10 +9,19 @@ import Swal from 'sweetalert2';
   styleUrls: ['./card.component.scss']
 })
 export class CardComponent implements OnInit {
+  //recibe el objeto que imprime en la card
   @Input() obj!:IMascota;
+
+  //eliminar mascota paso del hijo al pardre
+  @Output() eliminar = new EventEmitter<IMascota>();
+
+  //para borrar desde la card misma
   mascota!: IMascota;
   
-  constructor(private mascotasService:MascotasService) { }
+  constructor(private mascotasService:MascotasService) {
+    console.log("En el componente card");
+   }
+
 
   ngOnInit(): void {
   }
@@ -40,6 +49,11 @@ export class CardComponent implements OnInit {
         alert.fire('Cancelado', 'Registro sigue Almacenado', 'error');
       }
     })
+  }
+
+
+  eliminarPet(obj: IMascota){
+    this.eliminar.emit(obj);
   }
   
 }

@@ -1,0 +1,38 @@
+<div class="container">
+  <h3>Subir un Archivo</h3>
+  <input
+    type="file"
+    class="file-input form-control"
+    (change)="onFileSelected($event)"
+    #fileUpload
+  />
+
+  <div class="file-upload">
+    <button type="button" class="btn btn-primary mt-2" (click)="subir()">
+      Subir
+    </button>
+  </div>
+
+  <br>
+  <h3>Subir Multiples Archivos</h3>
+  <div class="form-group">
+    <label for="file">File</label>
+    <input
+      type="file"
+      name="file"
+      id="file"
+      class="form-control"
+      (change)="onFileChange($event)"
+      formControlName="file"
+      multiple
+    />
+    <div class="file-upload mt-2">
+      <button type="button" class="btn btn-primary" (click)="multiple()">Multiple</button>
+    </div>
+  </div>
+  <br>
+  <hr>
+  <h4>Dropzone Multiple</h4>
+  <dropzone [config]="imageConfig" [message]="'Haga clic o arrastre las imágenes aquí para cargarlas'" (error)="onUploadError($event)" (success)="onUploadSuccess($event)">
+  </dropzone>
+</div>

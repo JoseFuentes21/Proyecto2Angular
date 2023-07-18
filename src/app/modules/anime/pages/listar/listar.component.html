@@ -1,0 +1,20 @@
+<div class="d-flex p-2 m-5">
+</div>
+
+<div class="container">
+  <hr/>
+  <app-buscar (buscar)="onScrooll(a=$event)" ></app-buscar>
+  <div class="lista"
+    infinite-scroll
+    [infiniteScrollDistance]="2"
+    [infiniteScrollThrottle]="100"
+    (scrolled)="onScrooll(a)">
+
+    <div class="cards">
+      <ng-container *ngFor="let x of resultados">
+        <app-card [card]="x"></app-card>
+      </ng-container>
+    </div>
+
+  </div>
+</div>

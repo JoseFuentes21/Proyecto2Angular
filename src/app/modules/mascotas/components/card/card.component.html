@@ -1,6 +1,6 @@
 <div class="d-fex p-2 m-2"></div>
 <div class="card" style="width: 15rem;">
-    <img [src]="obj.img" class="card-img-top col-img" alt="...">
+    <img [src]="obj.img | imagenEmty:'mascotas'" class="card-img-top col-img" alt="...">
     <div class="card-body">
         <h5 class="card-title">{{ obj.raza }}</h5>
         <p>
@@ -11,6 +11,7 @@
         <div class="">
             <a [routerLink]="['/mascotas/',obj.id]" class="btn btn-primary">Leer mas</a>
             <button (click)="mostrarAlerta(obj.id)" class="btn btn-warning">Borrar</button>
+            <button (click)="eliminarPet(obj)" class="btn btn-danger m-1">Quitar</button>
         </div>
 
     </div>

@@ -1,0 +1,104 @@
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-10">
+      <h1>Calendario de Actividades</h1>
+      <full-calendar [options]="calendarOptions">
+
+      </full-calendar>
+    </div>
+  </div>
+</div>
+<ng-template #templateNuevo>
+  <div class="modal-header bg-primary text-white">
+    <h4 class="modal-title pull-left">Agregar Eventos</h4>
+    <button
+      type="button"
+      class="btn-close close pull-right"
+      aria-label="Close"
+      (click)="modalRef?.hide()"
+    >
+      <span aria-hidden="true" class="visually-hidden">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form (ngSubmit)="guardarEvent()" [formGroup]="formEvento">
+      <div class="row">
+        <div class="col-12">
+          <div class="mb-3">
+            <label class="control-label">Evento</label>
+            <input
+              class="form-control"
+              placeholder="Ingrese el evento"
+              type="text"
+              name="title"
+              formControlName="title"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="text-end mt-2">
+        <button
+          type="button"
+          class="btn btn-light me-1"
+          (click)="closeEventModal()"
+        >
+          Close
+        </button>
+        <button type="submit" class="btn btn-success" id="btn-save-event">
+          Save
+        </button>
+      </div>
+    </form>
+  </div>
+</ng-template>
+
+<ng-template #templateEditar>
+  <div class="modal-header bg-primary text-white">
+    <h4 class="modal-title pull-left">Editar Evento</h4>
+    <button
+      type="button"
+      class="btn-close close pull-right"
+      aria-label="Close"
+      (click)="modalRef?.hide()"
+    >
+      <span aria-hidden="true" class="visually-hidden">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form (ngSubmit)="guardarEdicion()" [formGroup]="formEditEvento">
+      <div class="row">
+        <div class="col-12">
+          <div class="mb-3">
+            <label class="control-label">Evento</label>
+            <input
+              class="form-control"
+              placeholder="Ingrese el evento"
+              type="text"
+              name="title"
+              formControlName="title"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="text-end mt-2">
+        <button
+          type="button"
+          class="btn btn-danger delete-event ms-1"
+          (click)="confirm()"
+        >
+          Delete
+        </button>
+        <button
+          type="button"
+          class="btn btn-light me-1"
+          (click)="closeEventModal()"
+        >
+          Close
+        </button>
+        <button type="submit" class="btn btn-success" id="btn-save-event">
+          Save
+        </button>
+      </div>
+    </form>
+  </div>
+</ng-template>

@@ -4,26 +4,28 @@ import { CommonModule } from '@angular/common';
 import { MascotasRoutingModule } from './mascotas-routing.module';
 import { CardComponent } from './components/card/card.component';
 import { ListarComponent } from './pages/listar/listar.component';
-import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
-import { MascotasService } from './services/mascotas.service';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MascotaComponent } from './pages/mascota/mascota.component';
+import { NuevoComponent } from './pages/nuevo/nuevo.component';
+import { EditarComponent } from './pages/editar/editar.component';
+import { ImagenEmtyPipe } from './pipes/imagen-emty.pipe';
 
 
 @NgModule({
   declarations: [
     CardComponent,
     ListarComponent,
-    MascotaComponent
+    MascotaComponent,
+    NuevoComponent,
+    EditarComponent,
+    ImagenEmtyPipe
   ],
   imports: [
     CommonModule,
     MascotasRoutingModule,
     FormsModule,
-    HttpClientModule
+    ReactiveFormsModule
   ],
-  providers:[
-    MascotasService
-  ]
+  providers:[  ]
 })
 export class MascotasModule { }

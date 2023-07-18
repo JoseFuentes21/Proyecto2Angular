@@ -1,4 +1,7 @@
 export interface IComida {
+
+    meals: [{
+
     idMeal:string; 
     strMeal:string; 
     trDrinkAlternate:string;
@@ -52,4 +55,6 @@ export interface IComida {
     strImageSource: string;
     strCreativeCommonsConfirmed: string;
     dateModified:string;
+    }];
 }
+

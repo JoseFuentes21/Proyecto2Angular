@@ -10,6 +10,9 @@ import { FooterComponent } from './layout/footer/footer.component';
 import { SkeletonComponent } from './layout/skeleton/skeleton.component';
 import { AppRoutingModule } from './app-routing.module';
 import { LocationStrategy, PathLocationStrategy } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
+import { ToastrModule } from 'ngx-toastr';
+
 
 @NgModule({
   declarations: [
@@ -23,12 +26,15 @@ import { LocationStrategy, PathLocationStrategy } from '@angular/common';
     BrowserAnimationsModule,//para incorporar animaciones del navegador
     AppRoutingModule,//modulo rutas
     CoreModule,//para clases utilizadas por app.module
-    SharedModule//recursos que se van a utilizar en mas de un modulo
+    SharedModule,//recursos que se van a utilizar en mas de un modulo
+    HttpClientModule,
+    ToastrModule.forRoot()
+
   ],
   providers: [
     {
       provide: LocationStrategy,
-      useClass: PathLocationStrategy,
+      useClass: PathLocationStrategy
     }
   ],
   bootstrap: [AppComponent]

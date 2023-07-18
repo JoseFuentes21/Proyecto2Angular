@@ -9,6 +9,7 @@ import { MascotasService } from '@modules/mascotas/services/mascotas.service';
 })
 export class ComidaComponent implements OnInit {
   comida!:IComida;
+  
   constructor(private comidaService:MascotasService) { }
 
   ngOnInit(): void {

@@ -1,0 +1,192 @@
+<!-- Button trigger modal -->
+<button
+  type="button"
+  class="btn btn-primary"
+  data-bs-toggle="modal"
+  data-bs-target="#modalMascota">
+  {{ leyenda }}
+</button>
+<!-- Modal -->
+<div
+  class="modal modal-fullscreen-xl-down fade"
+  id="modalMascota"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <form (ngSubmit)="guardar()" [formGroup]="formMascota">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Mascotas</h1>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+            (click)="mostrar()"
+          ></button>
+        </div>
+        <div class="modal-body">
+
+          <div class="form-group row m-4">
+            <select
+              class="form-control form-select"
+              formControlName="raza"
+              [class]="esCampoValido('raza')">
+              <option value="">Seleccione Raza</option>
+              <option *ngFor="let raza of razas" [ngValue]="raza.raza">
+                {{ raza.raza }}
+              </option>
+            </select>
+            <div class="invalid-feedback">
+              <span *ngIf="formMascota.get('raza')?.errors?.['required']"
+                >Requiere la raza</span
+              >
+            </div>
+          </div>
+
+          <div class="form-group row m-4">
+            <select
+              class="form-control form-select"
+              formControlName="origen"
+              [class]="esCampoValido('origen')">
+              <option value="">Seleccione Origen</option>
+              <option *ngFor="let origen of origenes" [ngValue]="origen.origen">
+                {{ origen.origen }}
+              </option>
+            </select>
+            <div class="invalid-feedback">
+              <span *ngIf="formMascota.get('origen')?.errors?.['required']">
+                Requiere el origen
+              </span>
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <div class="form-group col-md-6 mt-1">
+              <label>Guardian</label>
+              <div class="form-check form-check-inline m-3">
+                <input
+                  type="radio"
+                  class="form-check-input"
+                  formControlName="guardian"
+                  value="Si"
+                  [class]="esCampoValido('guardian')"
+                  id="si"/>
+                <label for="si" class="form-check-label">Si</label>
+              </div>
+              <div class="form-check form-check-inline m-3">
+                <input
+                  type="radio"
+                  class="form-check-input"
+                  formControlName="guardian"
+                  value="No"
+                  [class]="esCampoValido('guardian')"
+                  id="no"/>
+                <label for="no" class="form-check-label">No</label>
+              </div>
+              <div class="invalid-feedback">
+                <span *ngIf="formMascota.get('guardian')?.errors?.['required']">
+                    Requiere respuesta
+                </span>
+              </div>
+            </div>
+            <div class="form-group col-md-6 mt-3">
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Peso en kg"
+                formControlName="peso"
+                [class]="esCampoValido('peso')"/>
+              <div class="invalid-feedback">
+                <span *ngIf="formMascota.get('peso')?.errors?.['required']">
+                    Requiere un peso
+                </span>
+                <span *ngIf="formMascota.get('peso')?.errors?.['pattern']">
+                    Requiere numero
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group form-floating mt-3">
+            <textarea row="4"
+            class="form-control"
+            placeholder="Descripcion"
+            formControlName="des"
+            [class]="esCampoValido('des')"></textarea>
+            <label class="floatingInput">Descripcion</label>
+            <div class="invalid-feedback">
+                <span *ngIf="formMascota.get('des')?.errors?.['required']">
+                    Requiere una descripcion
+                </span>
+                <span *ngIf="formMascota.get('des')?.errors?.['minlength']">
+                    Tamano minimo{{formMascota.get('des')?.errors?.['minlength']?.requiredLength}}
+                </span>
+            </div>
+          </div>
+
+          <div class="form-group form-floating mt-3">
+            <textarea row="4"
+            class="form-control"
+            placeholder="Salud"
+            formControlName="salud"
+            [class]="esCampoValido('salud')"></textarea>
+            <label class="floatingInput">Salud</label>
+            <div class="invalid-feedback">
+                <span *ngIf="formMascota.get('salud')?.errors?.['required']">
+                    Requiere una detalle
+                </span>
+                <span *ngIf="formMascota.get('salud')?.errors?.['minlength']">
+                    Tamano minimo{{formMascota.get('salud')?.errors?.['minlength']?.requiredLength}}
+                </span>
+            </div>
+          </div>
+
+          <div class="form-group form-floating mt-3">
+            <textarea row="4"
+            class="form-control"
+            placeholder="Ejercicio"
+            formControlName="ejercicio"
+            [class]="esCampoValido('ejercicio')"></textarea>
+            <label class="floatingInput">Ejercicio</label>
+            <div class="invalid-feedback">
+                <span *ngIf="formMascota.get('ejercicio')?.errors?.['required']">
+                    Requiere una detalle
+                </span>
+                <span *ngIf="formMascota.get('ejercicio')?.errors?.['minlength']">
+                    Tamano minimo{{formMascota.get('ejercicio')?.errors?.['minlength']?.requiredLength}}
+                </span>
+            </div>
+          </div>
+
+          <div class="form-group form-floating mt-3">
+            <textarea row="4"
+            class="form-control"
+            placeholder="Nutricion"
+            formControlName="nutricion"
+            [class]="esCampoValido('nutricion')"></textarea>
+            <label class="floatingInput">Nutricion</label>
+            <div class="invalid-feedback">
+                <span *ngIf="formMascota.get('nutricion')?.errors?.['required']">
+                    Requiere una descripcion
+                </span>
+                <span *ngIf="formMascota.get('nutricion')?.errors?.['minlength']">
+                    Tamano minimo{{formMascota.get('nutricion')?.errors?.['minlength']?.requiredLength}}
+                </span>
+            </div>
+          </div>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
+            (click)="mostrar()"> Cerrar
+          </button>
+          <button type="submit" class="btn btn-sm btn-outline-info mt-sm-2">
+            <i class="bi bi-database-add"></i> Guardar
+          </button>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

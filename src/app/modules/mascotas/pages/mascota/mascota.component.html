@@ -23,9 +23,17 @@
                 <p>{{ mascota.ejercicio}}</p>
                 <p>{{ mascota.nutricion}}</p>
                 <br/>
-                <button mat-button class="btn btn-success m-2" (click)="regresar()"><i class="bi bi-backspace"></i></button>
+                <div class="form-group row">
+                    <div class="form-group col-md-1">
+                        <button mat-button class="btn btn-success m-2" (click)="regresar()">
+                            <i class="bi bi-backspace"></i>
+                        </button>
+                    </div>
+                    <div class="form-group col-md-1">
+                        <app-nuevo [leyenda]="'Editar'" [mascota]="mascota"></app-nuevo>
+                    </div>
+                </div>
             </div>
         </div>
     </ng-template>
-    
 </div>
